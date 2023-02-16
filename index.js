@@ -19,7 +19,14 @@ document.getElementById('first-card').addEventListener('click', function(){
     // console.log( typeof priceTotal);
 
     // show the data
+    displayData(productName, productPrice, productQuantity, priceTotal);
 
+   
+});
+
+function displayData(productName, productPrice, productQuantity, priceTotal){
+
+    console.log('called');
     const container = document.getElementById("table-container");
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -30,4 +37,4 @@ document.getElementById('first-card').addEventListener('click', function(){
     <td>${priceTotal}</td> `;
 
     container.appendChild(tr);
-})
+}
