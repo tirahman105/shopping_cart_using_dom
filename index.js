@@ -25,6 +25,7 @@ document.getElementById('first-card').addEventListener('click', function(){
 
     // show the data
     displayData(productName, productPrice, productQuantity, priceTotal);
+    disabledBtn('first-card');
 
    
 });
@@ -80,6 +81,29 @@ document.getElementById('third-card').addEventListener('click', function(){
    
 });
 
+// fir last card  
+
+document.getElementById('last-card').addEventListener('click', function(){
+
+    serial += 1;
+    const productName = document.getElementById('last-title').innerText;
+    const productPrice = document.getElementById('price-input').value;
+    const productQuantity = document.getElementById('quantity-input').value;
+
+    if( productPrice === "" || productQuantity === "" || productPrice <= 0 || productQuantity <= 0){
+        alert('Please enter any valid number');
+    } else{
+        const total = parseInt(productPrice) / parseInt(productQuantity);
+    // console.log(productName, total);
+    displayData(productName, productPrice, productQuantity, total);
+    document.getElementById('price-input').value = '';
+    document.getElementById('quantity-input').value = '';
+    }
+
+    
+
+})
+
 
 
 
@@ -103,4 +127,9 @@ function displayData(productName, productPrice, productQuantity, priceTotal){
     <td>${priceTotal}</td> `;
 
     container.appendChild(tr);
-}
+};
+
+// disable btn 
+function disabledBtn(id){
+    document.getElementById(id).setAttribute("disabled", true);
+};
